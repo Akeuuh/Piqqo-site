@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Piqqo</title>
+    <script>
+      // Redirect based on browser language
+      var lang = (
+        navigator.language ||
+        navigator.userLanguage ||
+        "fr"
+      ).toLowerCase();
+      if (lang.startsWith("fr")) {
+        window.location.replace("fr/index.html");
+      } else {
+        window.location.replace("en/index.html");
+      }
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=fr/index.html" />
+    </noscript>
+  </head>
+  <body>
+    <p>
+      Redirecting... <a href="fr/index.html">Francais</a> |
+      <a href="en/index.html">English</a>
+    </p>
+  </body>
+</html>
