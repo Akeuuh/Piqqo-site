@@ -14,12 +14,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../style.css" />
   </head>
-  <body>
+  <body class="bg-texture">
     <!-- Navigation -->
     <nav class="nav">
       <div class="nav__inner">
@@ -35,138 +35,410 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container">
-        <span class="hero__badge">iOS & Android App</span>
-        <h1 class="hero__title">Your style,<br />powered by <em>AI</em></h1>
-        <p class="hero__subtitle">
-          Photograph your clothes, describe an occasion and receive personalized
-          outfit suggestions made entirely from your own wardrobe.
-        </p>
-        <div class="hero__cta">
-          <a href="#features" class="btn btn--primary">Discover</a>
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <span class="hero__badge">Coming soon to iOS &amp; Android</span>
+            <h1 class="hero__title">
+              Your wardrobe,<br />reinvented by <em>AI</em>
+            </h1>
+            <p class="hero__subtitle">
+              Photograph your clothes, describe an occasion, and in seconds
+              receive outfits composed entirely from what you already own.
+            </p>
+            <div class="hero__cta">
+              <!-- Store badges — placeholders. Replace href with real store URLs at launch. -->
+              <div class="store-badges">
+                <a
+                  href="#"
+                  class="store-badge"
+                  aria-label="Download on the App Store"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M17.05 12.54c-.02-2.02 1.65-2.99 1.72-3.04-.94-1.37-2.4-1.56-2.92-1.58-1.24-.13-2.43.73-3.06.73-.63 0-1.6-.71-2.64-.69-1.36.02-2.61.79-3.31 2.01-1.41 2.45-.36 6.07 1.01 8.06.67.97 1.47 2.06 2.51 2.02 1.01-.04 1.39-.65 2.61-.65 1.22 0 1.56.65 2.63.63 1.09-.02 1.78-.99 2.44-1.97.77-1.13 1.09-2.22 1.11-2.28-.02-.01-2.13-.82-2.15-3.25zM15.03 6.6c.56-.68.94-1.62.83-2.56-.81.03-1.79.54-2.37 1.21-.52.6-.98 1.56-.86 2.48.9.07 1.83-.46 2.4-1.13z"
+                    />
+                  </svg>
+                  <span class="store-badge__label">
+                    <span class="store-badge__small">Download on the</span>
+                    <span class="store-badge__big">App Store</span>
+                  </span>
+                </a>
+                <a
+                  href="#"
+                  class="store-badge"
+                  aria-label="Get it on Google Play"
+                >
+                  <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.6 2.3zM16.8 15.3l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.7 2.1-.1-.1z"
+                    />
+                    <path d="M13.7 12.1l-9.4 9.4c.3.3.9.4 1.5 0l10.9-6.2-3-3.2z" opacity="0.85" />
+                    <path d="M13.7 11.9l3-3.2L5.8 2.5c-.6-.4-1.2-.3-1.5 0l9.4 9.4z" opacity="0.7" />
+                  </svg>
+                  <span class="store-badge__label">
+                    <span class="store-badge__small">Get it on</span>
+                    <span class="store-badge__big">Google Play</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <p class="hero__note">
+              Hosted in Europe · GDPR compliant · Your photos never kept
+            </p>
+          </div>
+
+          <!-- Product mockup: Suggestions screen replica.
+               Garment tiles are placeholder slots — set style="--tile:url(...)"
+               on a .mock-garment to drop in a real screenshot. -->
+          <div class="hero__visual">
+            <div class="mockup" role="img" aria-label="Preview of the Piqqo app: three suggested outfits">
+              <div class="mockup__notch"></div>
+              <div class="mockup__screen">
+                <div class="mock-app">
+                  <div class="mock-app__top">
+                    <span class="mock-app__title">Suggestions</span>
+                    <span class="mock-app__occasion">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.3 2.3 7.3L12 16.7 5.7 21l2.3-7.3-6-4.3h7.6z"/></svg>
+                      Interview
+                    </span>
+                  </div>
+                  <div class="mock-card">
+                    <span class="mock-card__badge">1 / 3</span>
+                    <span class="mock-card__heart" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                    </span>
+                    <div class="mock-collage">
+                      <div class="mock-garment mock-garment--1"><span class="mock-garment__badge">Blazer</span></div>
+                      <div class="mock-garment mock-garment--2"><span class="mock-garment__badge">Shirt</span></div>
+                      <div class="mock-garment mock-garment--3"><span class="mock-garment__badge">Trousers</span></div>
+                      <div class="mock-garment mock-garment--4"><span class="mock-garment__badge">Derbies</span></div>
+                    </div>
+                    <p class="mock-card__reason">
+                      A sober, structured look, perfect for an interview: the
+                      blazer balances the fluid trousers.
+                    </p>
+                  </div>
+                  <div class="mock-dots" aria-hidden="true">
+                    <span class="mock-dot mock-dot--active"></span>
+                    <span class="mock-dot"></span>
+                    <span class="mock-dot"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="features" id="features">
+    <!-- Features — bento -->
+    <section class="bento" id="features">
       <div class="container">
-        <div class="features__header">
-          <h2>Everything you need</h2>
+        <div class="bento__header" data-reveal>
+          <span class="eyebrow eyebrow--accent">Powered by AI</span>
+          <h2>Three gestures, a wardrobe that thinks</h2>
           <p>
-            Piqqo uses artificial intelligence to help you get the most out of
-            your wardrobe.
+            Piqqo knows your wardrobe, understands it and puts it together —
+            all you have to do is get dressed.
           </p>
         </div>
-        <div class="features__grid">
-          <div class="feature-card">
-            <div class="feature-card__icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#E07A5F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
-                ></path>
-                <circle cx="12" cy="13" r="4"></circle>
-              </svg>
+
+        <div class="bento__grid">
+          <!-- Smart Scan — showcase cell, reuses the phone-mockup primitive -->
+          <article class="bento__cell bento__cell--scan" data-reveal>
+            <div class="bento__copy">
+              <span class="eyebrow eyebrow--accent">AI recognition</span>
+              <h3>Smart Scan</h3>
+              <p>
+                Photograph your clothes and AI analyzes them automatically:
+                category, colors, style and season.
+              </p>
             </div>
-            <h3>Smart Scan</h3>
-            <p>
-              Photograph your clothes and AI automatically analyzes them:
-              category, colors, style and season.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-card__icon feature-card__icon--sage">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#81B29A"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+            <div class="bento__visual">
+              <div
+                class="mockup mockup--sm"
+                role="img"
+                aria-label="Piqqo scan screen: analyzing a garment"
               >
-                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                <path d="M2 17l10 5 10-5"></path>
-                <path d="M2 12l10 5 10-5"></path>
-              </svg>
+                <div class="mockup__notch"></div>
+                <div class="mockup__screen">
+                  <div class="mock-scan">
+                    <div class="mock-scan__bar">
+                      <span>Scan</span>
+                      <span class="mock-scan__live" aria-hidden="true"></span>
+                    </div>
+                    <div class="mock-scan__view">
+                      <div class="mock-scan__garment"></div>
+                      <span class="mock-scan__corner mock-scan__corner--tl"></span>
+                      <span class="mock-scan__corner mock-scan__corner--tr"></span>
+                      <span class="mock-scan__corner mock-scan__corner--bl"></span>
+                      <span class="mock-scan__corner mock-scan__corner--br"></span>
+                      <span class="mock-scan__scanline" aria-hidden="true"></span>
+                    </div>
+                    <div class="mock-scan__tags">
+                      <span class="mock-tag">Blazer</span>
+                      <span class="mock-tag">Wool</span>
+                      <span class="mock-tag">Navy</span>
+                      <span class="mock-tag">Winter</span>
+                    </div>
+                    <div class="mock-scan__shutter" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3>Tailored Suggestions</h3>
-            <p>
-              Describe an occasion and receive 3 outfits composed exclusively
-              from your own clothes.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-card__icon feature-card__icon--info">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#6C8EBF"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                ></path>
-              </svg>
+          </article>
+
+          <!-- Tailored Suggestions — shows the Wardrobe grid screen (flat card, no device frame) -->
+          <article
+            class="bento__cell bento__cell--sugg"
+            data-reveal
+            style="--reveal-delay: 0.08s"
+          >
+            <div class="bento__copy">
+              <span class="eyebrow eyebrow--sage">Tailored</span>
+              <h3>Tailored Suggestions</h3>
+              <p>
+                Describe an occasion and receive 3 outfits composed exclusively
+                from your own clothes.
+              </p>
             </div>
-            <h3>Swipe & Favorites</h3>
-            <p>
-              Like or pass on suggested outfits. The AI learns from your
-              preferences to improve over time.
-            </p>
-          </div>
+            <div
+              class="mock-wardrobe"
+              role="img"
+              aria-label="Piqqo wardrobe screen: your digitized wardrobe"
+            >
+              <div class="mock-wardrobe__bar">
+                <span class="mock-wardrobe__title">My wardrobe</span>
+                <span class="mock-wardrobe__count">24 items</span>
+              </div>
+              <div class="mock-wardrobe__grid" aria-hidden="true">
+                <span class="mock-tile mock-tile--1"></span>
+                <span class="mock-tile mock-tile--2"></span>
+                <span class="mock-tile mock-tile--3"></span>
+                <span class="mock-tile mock-tile--4"></span>
+                <span class="mock-tile mock-tile--5"></span>
+                <span class="mock-tile mock-tile--6"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Swipe & Favorites — wide banner cell -->
+          <article
+            class="bento__cell bento__cell--swipe"
+            data-reveal
+            style="--reveal-delay: 0.16s"
+          >
+            <div class="bento__copy">
+              <span class="eyebrow eyebrow--info">Learning</span>
+              <h3>Swipe &amp; Favorites</h3>
+              <p>
+                Like or pass on suggested outfits. The AI learns from your
+                preferences to improve over time.
+              </p>
+            </div>
+            <div class="mock-swipe" role="img" aria-label="Outfit cards to like or pass">
+              <div class="mock-swipe__card mock-swipe__card--back"></div>
+              <div class="mock-swipe__card mock-swipe__card--front">
+                <span class="mock-swipe__pass" aria-hidden="true">&times;</span>
+                <span class="mock-swipe__like" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                </span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- How It Works — animated four-step flow.
+         Each step reuses the phone-mockup primitive (issue 02) to show a real
+         app screen. Steps stagger in on scroll via the reveal harness (main.js,
+         issue 01). The final step carries a swipe-gesture micro-animation.
+         All motion is gated by prefers-reduced-motion (see style.css). -->
     <section class="how-it-works">
       <div class="container">
-        <div class="how-it-works__header">
-          <h2>How it works</h2>
+        <div class="how-it-works__header" data-reveal>
+          <span class="eyebrow eyebrow--accent">How it works</span>
+          <h2>Four gestures, your style every day</h2>
         </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step__number">1</div>
-            <h3>Scan</h3>
-            <p>Take photos of your clothes. AI auto-tags them instantly.</p>
-          </div>
-          <div class="step">
-            <div class="step__number">2</div>
-            <h3>Describe</h3>
-            <p>Tell us the occasion: interview, evening out, casual...</p>
-          </div>
-          <div class="step">
-            <div class="step__number">3</div>
-            <h3>Discover</h3>
-            <p>Receive 3 personalized outfit suggestions.</p>
-          </div>
-          <div class="step">
-            <div class="step__number">4</div>
-            <h3>Refine</h3>
-            <p>Swipe to refine future suggestions.</p>
-          </div>
-        </div>
+        <ol class="how-steps">
+          <!-- 1 · Scan — camera / scan screen -->
+          <li class="how-step" data-reveal>
+            <div class="how-step__stage">
+              <div
+                class="mockup mockup--how"
+                role="img"
+                aria-label="Piqqo scan screen: analyzing a garment"
+              >
+                <div class="mockup__notch"></div>
+                <div class="mockup__screen">
+                  <div class="mock-scan">
+                    <div class="mock-scan__bar">
+                      <span>Scan</span>
+                      <span class="mock-scan__live" aria-hidden="true"></span>
+                    </div>
+                    <div class="mock-scan__view">
+                      <div class="mock-scan__garment"></div>
+                      <span class="mock-scan__corner mock-scan__corner--tl"></span>
+                      <span class="mock-scan__corner mock-scan__corner--tr"></span>
+                      <span class="mock-scan__corner mock-scan__corner--bl"></span>
+                      <span class="mock-scan__corner mock-scan__corner--br"></span>
+                      <span class="mock-scan__scanline" aria-hidden="true"></span>
+                    </div>
+                    <div class="mock-scan__tags">
+                      <span class="mock-tag">Blazer</span>
+                      <span class="mock-tag">Wool</span>
+                      <span class="mock-tag">Navy</span>
+                    </div>
+                    <div class="mock-scan__shutter" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="how-step__copy">
+              <span class="how-step__num">1</span>
+              <h3>Scan</h3>
+              <p>Take photos of your clothes. AI tags them automatically.</p>
+            </div>
+          </li>
+
+          <!-- 2 · Describe — occasion picker screen -->
+          <li class="how-step" data-reveal style="--reveal-delay: 0.1s">
+            <div class="how-step__stage">
+              <div
+                class="mockup mockup--how"
+                role="img"
+                aria-label="Piqqo screen: choosing the occasion for an outfit"
+              >
+                <div class="mockup__notch"></div>
+                <div class="mockup__screen">
+                  <div class="mock-occasion">
+                    <span class="mock-occasion__title">New outfit</span>
+                    <div class="mock-occasion__field">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                      <span class="mock-occasion__typed">An interview this morning</span>
+                      <span class="mock-occasion__caret" aria-hidden="true"></span>
+                    </div>
+                    <span class="mock-occasion__label">Occasion</span>
+                    <div class="mock-occasion__chips">
+                      <span class="mock-chip mock-chip--on">Interview</span>
+                      <span class="mock-chip">Evening</span>
+                      <span class="mock-chip">Casual</span>
+                      <span class="mock-chip">Date</span>
+                      <span class="mock-chip">Sport</span>
+                    </div>
+                    <span class="mock-occasion__cta">Build my outfit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="how-step__copy">
+              <span class="how-step__num">2</span>
+              <h3>Describe</h3>
+              <p>Tell us the occasion: interview, evening out, casual...</p>
+            </div>
+          </li>
+
+          <!-- 3 · Discover — Suggestions / OutfitCard screen -->
+          <li class="how-step" data-reveal style="--reveal-delay: 0.2s">
+            <div class="how-step__stage">
+              <div
+                class="mockup mockup--how"
+                role="img"
+                aria-label="Piqqo preview: an outfit suggested from your wardrobe"
+              >
+                <div class="mockup__notch"></div>
+                <div class="mockup__screen">
+                  <div class="mock-app">
+                    <div class="mock-app__top">
+                      <span class="mock-app__title">Suggestions</span>
+                      <span class="mock-app__occasion">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.3 2.3 7.3L12 16.7 5.7 21l2.3-7.3-6-4.3h7.6z"/></svg>
+                        Interview
+                      </span>
+                    </div>
+                    <div class="mock-card">
+                      <span class="mock-card__badge">1 / 3</span>
+                      <span class="mock-card__heart" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                      </span>
+                      <div class="mock-collage">
+                        <div class="mock-garment mock-garment--1"><span class="mock-garment__badge">Blazer</span></div>
+                        <div class="mock-garment mock-garment--2"><span class="mock-garment__badge">Shirt</span></div>
+                        <div class="mock-garment mock-garment--3"><span class="mock-garment__badge">Trousers</span></div>
+                        <div class="mock-garment mock-garment--4"><span class="mock-garment__badge">Derbies</span></div>
+                      </div>
+                      <p class="mock-card__reason">
+                        A sober, structured look, perfect for an interview.
+                      </p>
+                    </div>
+                    <div class="mock-dots" aria-hidden="true">
+                      <span class="mock-dot mock-dot--active"></span>
+                      <span class="mock-dot"></span>
+                      <span class="mock-dot"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="how-step__copy">
+              <span class="how-step__num">3</span>
+              <h3>Discover</h3>
+              <p>Receive 3 personalized outfit suggestions.</p>
+            </div>
+          </li>
+
+          <!-- 4 · Refine — swipe-gesture micro-animation -->
+          <li class="how-step" data-reveal style="--reveal-delay: 0.3s">
+            <div class="how-step__stage">
+              <div
+                class="mockup mockup--how"
+                role="img"
+                aria-label="Piqqo screen: swipe an outfit to refine suggestions"
+              >
+                <div class="mockup__notch"></div>
+                <div class="mockup__screen">
+                  <div class="mock-refine">
+                    <div class="mock-refine__bar">
+                      <span>For you</span>
+                    </div>
+                    <div class="mock-refine__deck">
+                      <div class="mock-refine__card mock-refine__card--back" aria-hidden="true"></div>
+                      <div class="mock-refine__card mock-refine__card--front">
+                        <span class="mock-refine__stamp" aria-hidden="true">Like</span>
+                        <div class="mock-collage mock-collage--refine">
+                          <div class="mock-garment mock-garment--2"></div>
+                          <div class="mock-garment mock-garment--4"></div>
+                          <div class="mock-garment mock-garment--1"></div>
+                          <div class="mock-garment mock-garment--3"></div>
+                        </div>
+                      </div>
+                      <span class="mock-refine__hand" aria-hidden="true"></span>
+                    </div>
+                    <div class="mock-refine__actions" aria-hidden="true">
+                      <span class="mock-refine__btn mock-refine__btn--pass">&times;</span>
+                      <span class="mock-refine__btn mock-refine__btn--like">
+                        <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="how-step__copy">
+              <span class="how-step__num">4</span>
+              <h3>Refine</h3>
+              <p>Swipe to refine future suggestions.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- Privacy Banner -->
-    <section class="privacy-banner">
+    <!-- Privacy band -->
+    <section class="privacy-band section--dark">
       <div class="container">
-        <div class="privacy-banner__inner">
+        <div class="privacy-band__inner" data-reveal>
           <div>
             <h2>Your data stays yours</h2>
             <p>
@@ -188,10 +460,12 @@
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
             <li><a href="mailto:leclercq.axel@gmail.com">Contact</a></li>
-            <li><a href="../fr/index.html">Francais</a></li>
+            <li><a href="../fr/index.html">Français</a></li>
           </ul>
         </div>
       </div>
     </footer>
+
+    <script src="../main.js" defer></script>
   </body>
 </html>
