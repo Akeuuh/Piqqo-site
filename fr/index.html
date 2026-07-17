@@ -14,12 +14,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../style.css" />
   </head>
-  <body>
+  <body class="bg-texture">
     <!-- Navigation -->
     <nav class="nav">
       <div class="nav__inner">
@@ -53,14 +53,14 @@
     <!-- Features -->
     <section class="features" id="features">
       <div class="container">
-        <div class="features__header">
+        <div class="features__header" data-reveal>
           <h2>Tout ce qu'il vous faut</h2>
           <p>
             Piqqo utilise l'intelligence artificielle pour vous aider a tirer le
             meilleur de votre garde-robe.
           </p>
         </div>
-        <div class="features__grid">
+        <div class="features__grid" data-reveal>
           <div class="feature-card">
             <div class="feature-card__icon">
               <svg
@@ -138,10 +138,10 @@
     <!-- How It Works -->
     <section class="how-it-works">
       <div class="container">
-        <div class="how-it-works__header">
+        <div class="how-it-works__header" data-reveal>
           <h2>Comment ca marche</h2>
         </div>
-        <div class="steps">
+        <div class="steps" data-reveal>
           <div class="step">
             <div class="step__number">1</div>
             <h3>Scannez</h3>
@@ -171,7 +171,7 @@
     <!-- Privacy Banner -->
     <section class="privacy-banner">
       <div class="container">
-        <div class="privacy-banner__inner">
+        <div class="privacy-banner__inner" data-reveal>
           <div>
             <h2>Vos donnees restent les votres</h2>
             <p>
@@ -198,5 +198,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="../main.js" defer></script>
   </body>
 </html>
