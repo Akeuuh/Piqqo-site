@@ -1589,3 +1589,370 @@ p {
     transition: box-shadow 0.25s ease;
   }
 }
+
+/* ============================================
+   How It Works — animated four-step flow (issue 04)
+   Each step reuses the phone-mockup primitive to show a real app screen.
+   Steps stagger in on scroll via the reveal harness. The final step
+   carries a looping swipe-gesture micro-animation. Two new in-frame
+   screens live here: .mock-occasion (Decrivez) and .mock-refine (Affinez).
+   ============================================ */
+.how-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.how-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Smaller device frame tuned for a 4-up row */
+.mockup--how {
+  --mock-w: 210px;
+}
+
+.how-step__stage {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.how-step__copy {
+  margin-top: var(--space-lg);
+  max-width: 26ch;
+}
+
+.how-step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--font-size-body-sm);
+  font-weight: 700;
+  color: var(--color-accent);
+  background: rgba(224, 122, 95, 0.12);
+  border-radius: var(--radius-full);
+}
+
+.how-step__copy h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.how-step__copy p {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+/* --- Decrivez : occasion picker screen --- */
+.mock-occasion {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px 14px 16px;
+  gap: 10px;
+}
+
+.mock-occasion__title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.mock-occasion__field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 11px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.mock-occasion__typed {
+  color: var(--color-primary);
+}
+
+.mock-occasion__caret {
+  width: 1.5px;
+  height: 12px;
+  margin-left: -3px;
+  background: var(--color-accent);
+  animation: caret-blink 1.1s step-end infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.mock-occasion__label {
+  margin-top: 2px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.mock-occasion__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mock-chip {
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius-full);
+}
+
+.mock-chip--on {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.mock-occasion__cta {
+  margin-top: auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+/* --- Affinez : swipe-gesture micro-animation screen --- */
+.mock-refine {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px 14px 16px;
+  gap: 10px;
+}
+
+.mock-refine__bar span {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.mock-refine__deck {
+  position: relative;
+  flex: 1;
+}
+
+.mock-refine__card {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.mock-refine__card--back {
+  transform: rotate(-5deg) scale(0.94);
+  opacity: 0.5;
+}
+
+.mock-refine__card--front {
+  transform-origin: bottom center;
+  animation: refine-swipe 4s ease-in-out infinite;
+}
+
+/* Outfit collage filling the swipe card */
+.mock-collage--refine {
+  height: 100%;
+  margin-top: 0;
+  padding: 8px;
+  gap: 6px;
+}
+
+.mock-refine__stamp {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-secondary);
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-md);
+  transform: rotate(-12deg);
+  opacity: 0;
+  animation: refine-stamp 4s ease-in-out infinite;
+}
+
+/* Pointer that drags the card, echoing the swipe */
+.mock-refine__hand {
+  position: absolute;
+  bottom: 26%;
+  left: 46%;
+  z-index: 4;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: rgba(45, 52, 54, 0.28);
+  box-shadow: 0 0 0 6px rgba(45, 52, 54, 0.1);
+  animation: refine-hand 4s ease-in-out infinite;
+}
+
+.mock-refine__actions {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+}
+
+.mock-refine__btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.mock-refine__btn--pass {
+  color: var(--color-text-secondary);
+}
+
+.mock-refine__btn--like svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-accent);
+}
+
+@keyframes refine-swipe {
+  0%,
+  14% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+  38% {
+    transform: translateX(60px) rotate(9deg);
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(230px) rotate(15deg);
+    opacity: 0;
+  }
+  53% {
+    transform: translateX(0) rotate(0);
+    opacity: 0;
+  }
+  70%,
+  100% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes refine-stamp {
+  0%,
+  18% {
+    opacity: 0;
+  }
+  34%,
+  50% {
+    opacity: 1;
+  }
+  53%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes refine-hand {
+  0%,
+  14% {
+    transform: translate(0, 0);
+    opacity: 0.9;
+  }
+  38% {
+    transform: translate(56px, -6px);
+    opacity: 0.9;
+  }
+  52% {
+    transform: translate(150px, -12px);
+    opacity: 0;
+  }
+  53%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* --- How It Works responsive ---
+   Four 210px frames + gaps need ~984px of viewport before they overflow the
+   container, so the row collapses to 2-up well above the 768px tablet mark. */
+@media (max-width: 992px) {
+  .how-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xxl) var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .how-steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-xxl);
+  }
+
+  .mockup--how {
+    --mock-w: 230px;
+  }
+}
+
+/* Static, legible fallback: no swipe/caret motion, "liked" state shown */
+@media (prefers-reduced-motion: reduce) {
+  .mock-occasion__caret {
+    animation: none;
+  }
+
+  .mock-refine__card--front {
+    transform: rotate(4deg);
+    animation: none;
+  }
+
+  .mock-refine__stamp {
+    opacity: 1;
+    animation: none;
+  }
+
+  .mock-refine__hand {
+    display: none;
+  }
+}
