@@ -132,87 +132,121 @@
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="features" id="features">
+    <!-- Features — bento -->
+    <section class="bento" id="features">
       <div class="container">
-        <div class="features__header" data-reveal>
-          <h2>Tout ce qu'il vous faut</h2>
+        <div class="bento__header" data-reveal>
+          <span class="eyebrow eyebrow--accent">Propulse par l'IA</span>
+          <h2>Trois gestes, une garde-robe qui pense</h2>
           <p>
-            Piqqo utilise l'intelligence artificielle pour vous aider a tirer le
-            meilleur de votre garde-robe.
+            Piqqo connait votre penderie, la comprend et l'assemble — vous
+            n'avez plus qu'a enfiler la tenue.
           </p>
         </div>
-        <div class="features__grid" data-reveal>
-          <div class="feature-card">
-            <div class="feature-card__icon">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#E07A5F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
-                ></path>
-                <circle cx="12" cy="13" r="4"></circle>
-              </svg>
+
+        <div class="bento__grid">
+          <!-- Scan intelligent — showcase cell, reuses the phone-mockup primitive -->
+          <article class="bento__cell bento__cell--scan" data-reveal>
+            <div class="bento__copy">
+              <span class="eyebrow eyebrow--accent">Reconnaissance IA</span>
+              <h3>Scan intelligent</h3>
+              <p>
+                Photographiez vos vetements et l'IA les analyse automatiquement :
+                categorie, couleurs, style et saison.
+              </p>
             </div>
-            <h3>Scan intelligent</h3>
-            <p>
-              Photographiez vos vetements et l'IA les analyse automatiquement :
-              categorie, couleurs, style et saison.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-card__icon feature-card__icon--sage">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#81B29A"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+            <div class="bento__visual">
+              <div
+                class="mockup mockup--sm"
+                role="img"
+                aria-label="Ecran de scan Piqqo : analyse d'un vetement en cours"
               >
-                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                <path d="M2 17l10 5 10-5"></path>
-                <path d="M2 12l10 5 10-5"></path>
-              </svg>
+                <div class="mockup__notch"></div>
+                <div class="mockup__screen">
+                  <div class="mock-scan">
+                    <div class="mock-scan__bar">
+                      <span>Scanner</span>
+                      <span class="mock-scan__live" aria-hidden="true"></span>
+                    </div>
+                    <div class="mock-scan__view">
+                      <div class="mock-scan__garment"></div>
+                      <span class="mock-scan__corner mock-scan__corner--tl"></span>
+                      <span class="mock-scan__corner mock-scan__corner--tr"></span>
+                      <span class="mock-scan__corner mock-scan__corner--bl"></span>
+                      <span class="mock-scan__corner mock-scan__corner--br"></span>
+                      <span class="mock-scan__scanline" aria-hidden="true"></span>
+                    </div>
+                    <div class="mock-scan__tags">
+                      <span class="mock-tag">Veste</span>
+                      <span class="mock-tag">Laine</span>
+                      <span class="mock-tag">Bleu marine</span>
+                      <span class="mock-tag">Hiver</span>
+                    </div>
+                    <div class="mock-scan__shutter" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3>Suggestions sur mesure</h3>
-            <p>
-              Decrivez une occasion et recevez 3 tenues composees exclusivement
-              de vos propres vetements.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-card__icon feature-card__icon--info">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#6C8EBF"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                ></path>
-              </svg>
+          </article>
+
+          <!-- Suggestions sur mesure — shows the Wardrobe grid screen (flat card, no device frame) -->
+          <article
+            class="bento__cell bento__cell--sugg"
+            data-reveal
+            style="--reveal-delay: 0.08s"
+          >
+            <div class="bento__copy">
+              <span class="eyebrow eyebrow--sage">Sur mesure</span>
+              <h3>Suggestions sur mesure</h3>
+              <p>
+                Decrivez une occasion et recevez 3 tenues composees exclusivement
+                de vos propres vetements.
+              </p>
             </div>
-            <h3>Swipe & favoris</h3>
-            <p>
-              Likez ou passez les tenues proposees. L'IA apprend de vos
-              preferences pour s'ameliorer au fil du temps.
-            </p>
-          </div>
+            <div
+              class="mock-wardrobe"
+              role="img"
+              aria-label="Ecran penderie Piqqo : votre garde-robe numerisee"
+            >
+              <div class="mock-wardrobe__bar">
+                <span class="mock-wardrobe__title">Ma penderie</span>
+                <span class="mock-wardrobe__count">24 pieces</span>
+              </div>
+              <div class="mock-wardrobe__grid" aria-hidden="true">
+                <span class="mock-tile mock-tile--1"></span>
+                <span class="mock-tile mock-tile--2"></span>
+                <span class="mock-tile mock-tile--3"></span>
+                <span class="mock-tile mock-tile--4"></span>
+                <span class="mock-tile mock-tile--5"></span>
+                <span class="mock-tile mock-tile--6"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Swipe & favoris — wide banner cell -->
+          <article
+            class="bento__cell bento__cell--swipe"
+            data-reveal
+            style="--reveal-delay: 0.16s"
+          >
+            <div class="bento__copy">
+              <span class="eyebrow eyebrow--info">Apprentissage</span>
+              <h3>Swipe & favoris</h3>
+              <p>
+                Likez ou passez les tenues proposees. L'IA apprend de vos
+                preferences pour s'ameliorer au fil du temps.
+              </p>
+            </div>
+            <div class="mock-swipe" role="img" aria-label="Cartes de tenues a liker ou passer">
+              <div class="mock-swipe__card mock-swipe__card--back"></div>
+              <div class="mock-swipe__card mock-swipe__card--front">
+                <span class="mock-swipe__pass" aria-hidden="true">&times;</span>
+                <span class="mock-swipe__like" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                </span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
