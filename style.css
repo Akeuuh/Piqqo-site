@@ -275,12 +275,46 @@ p {
 
 /* --- Hero Section --- */
 .hero {
-  padding: var(--space-4xl) 0;
-  text-align: center;
+  position: relative;
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  overflow: hidden;
+}
+
+/* Soft warm glow behind the phone */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 55%;
+  height: 120%;
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(224, 122, 95, 0.16) 0%,
+    rgba(129, 178, 154, 0.1) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: var(--space-4xl);
+}
+
+.hero__copy {
+  max-width: 32ch;
 }
 
 .hero__badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
   padding: 6px 16px;
   font-size: var(--font-size-caption);
   font-weight: 600;
@@ -293,30 +327,49 @@ p {
 }
 
 .hero__title {
-  font-size: var(--font-size-hero);
-  font-weight: 700;
-  line-height: 1.1;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--font-size-display);
+  font-weight: 600;
+  line-height: 1.02;
   margin-bottom: var(--space-lg);
-  letter-spacing: -1px;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
 }
 
+/* Fraunces ships true italics — the accent word gets a real italic cut */
 .hero__title em {
-  font-style: normal;
+  font-style: italic;
   color: var(--color-accent);
 }
 
 .hero__subtitle {
   font-size: var(--font-size-h3);
   color: var(--color-text-secondary);
-  max-width: 600px;
-  margin: 0 auto var(--space-xl);
+  max-width: 46ch;
+  margin: 0 0 var(--space-xl);
   line-height: var(--line-height-relaxed);
 }
 
 .hero__cta {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-md);
+}
+
+.hero__note {
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+  font-size: var(--font-size-caption);
+  color: var(--color-muted);
+}
+
+.hero__visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
 }
 
 /* --- Buttons --- */
@@ -660,6 +713,27 @@ p {
     padding: var(--space-3xl) 0;
   }
 
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    text-align: center;
+  }
+
+  .hero__copy {
+    max-width: none;
+  }
+
+  .hero__badge,
+  .hero__cta,
+  .store-badges {
+    justify-content: center;
+  }
+
+  .hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .features__grid {
     grid-template-columns: 1fr;
     gap: var(--space-md);
@@ -781,5 +855,302 @@ p {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* ============================================
+   Store badges (placeholder — swap href for real store URLs at launch)
+   ============================================ */
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-md);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.store-badge:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.store-badge svg {
+  flex-shrink: 0;
+  fill: #fff;
+}
+
+.store-badge__label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.store-badge__small {
+  font-size: 9px;
+  letter-spacing: 0.4px;
+  opacity: 0.85;
+}
+
+.store-badge__big {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ============================================
+   Phone mockup primitive (reused by hero, features, how-it-works)
+   Garment tiles are placeholder slots: set --tile to a real screenshot url
+   (background-image) to raise fidelity per slot.
+   ============================================ */
+.mockup {
+  --mock-w: 300px;
+  position: relative;
+  width: var(--mock-w);
+  aspect-ratio: 300 / 620;
+  background: #111314;
+  border-radius: 44px;
+  padding: 11px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.18),
+    0 30px 60px rgba(45, 52, 54, 0.24);
+}
+
+.mockup__notch {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 20px;
+  background: #111314;
+  border-radius: 0 0 14px 14px;
+  z-index: 5;
+}
+
+.mockup__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg);
+  border-radius: 34px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Suggestions screen content --- */
+.mock-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px 14px 14px;
+  gap: 10px;
+}
+
+.mock-app__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mock-app__title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.mock-app__occasion {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: rgba(224, 122, 95, 0.12);
+  border-radius: var(--radius-full);
+}
+
+.mock-card {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.mock-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 3px 9px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-full);
+}
+
+.mock-card__heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.mock-card__heart svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-accent);
+}
+
+.mock-collage {
+  flex: 1;
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 8px;
+}
+
+.mock-garment {
+  position: relative;
+  border-radius: var(--radius-md);
+  background-color: var(--color-muted);
+  background-image: var(--tile, none);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Placeholder tints so tiles read as distinct garments before real photos */
+.mock-garment--1 {
+  background-image: linear-gradient(145deg, #b9a58f, #8f7d68);
+}
+.mock-garment--2 {
+  background-image: linear-gradient(145deg, #cdd7d1, #a7b8ae);
+}
+.mock-garment--3 {
+  background-image: linear-gradient(145deg, #9fb0c4, #7889a0);
+}
+.mock-garment--4 {
+  background-image: linear-gradient(145deg, #e0b3a4, #c98d78);
+}
+
+.mock-garment__badge {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  padding: 2px 7px;
+  font-size: 8px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius-full);
+}
+
+.mock-card__reason {
+  margin: 10px 0 0;
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.mock-dots {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  padding-top: 2px;
+}
+
+.mock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-muted);
+}
+
+.mock-dot--active {
+  width: 16px;
+  background: var(--color-accent);
+}
+
+/* ============================================
+   Hero / mockup animation
+   ============================================ */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__visual {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+.hero .mock-garment {
+  opacity: 0;
+  animation: tile-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero .mock-garment--1 {
+  animation-delay: 0.2s;
+}
+.hero .mock-garment--2 {
+  animation-delay: 0.32s;
+}
+.hero .mock-garment--3 {
+  animation-delay: 0.44s;
+}
+.hero .mock-garment--4 {
+  animation-delay: 0.56s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__visual {
+    animation: none;
+  }
+  .hero .mock-garment {
+    opacity: 1;
+    animation: none;
   }
 }
