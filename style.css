@@ -534,46 +534,50 @@ p {
   margin-bottom: 0;
 }
 
-/* --- Privacy Banner --- */
-.privacy-banner {
-  padding: var(--space-3xl) 0;
-  background-color: var(--color-primary);
-  color: white;
+/* --- Privacy Band ---
+   Deep-charcoal band: the ink background, terracotta glow, and on-dark text
+   come from the shared `.section--dark` treatment (applied in the markup).
+   Only band-specific layout lives here. */
+.privacy-band {
+  padding: var(--space-4xl) 0;
 }
 
-.privacy-banner__inner {
+.privacy-band__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-xl);
 }
 
-.privacy-banner h2 {
-  color: white;
+.privacy-band h2 {
   margin-bottom: var(--space-sm);
 }
 
-.privacy-banner p {
-  color: rgba(255, 255, 255, 0.7);
+.privacy-band p {
   margin-bottom: 0;
   max-width: 500px;
 }
 
-.privacy-banner .btn--outline {
-  color: white;
-  border-color: rgba(255, 255, 255, 0.3);
+.privacy-band .btn--outline {
+  color: var(--color-on-dark);
+  border-color: rgba(250, 248, 246, 0.3);
   white-space: nowrap;
 }
 
-.privacy-banner .btn--outline:hover {
-  border-color: white;
-  color: white;
+.privacy-band .btn--outline:hover {
+  border-color: var(--color-on-dark);
+  color: var(--color-on-dark);
 }
 
-/* --- Footer --- */
+/* --- Footer ---
+   Deep-charcoal footer that flows out of the privacy band; a hairline
+   divider marks the seam between the two dark regions. Links lift to
+   terracotta on hover for a brand accent. */
 .footer {
   padding: var(--space-xl) 0;
-  border-top: 1px solid rgba(45, 52, 54, 0.08);
+  background-color: var(--color-ink);
+  color: var(--color-on-dark-muted);
+  border-top: 1px solid rgba(250, 248, 246, 0.1);
 }
 
 .footer__inner {
@@ -586,7 +590,7 @@ p {
 
 .footer__copy {
   font-size: var(--font-size-body-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-on-dark-muted);
 }
 
 .footer__links {
@@ -597,11 +601,12 @@ p {
 
 .footer__links a {
   font-size: var(--font-size-body-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-on-dark-muted);
+  transition: color 0.2s ease;
 }
 
 .footer__links a:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 /* --- Legal Pages --- */
@@ -744,12 +749,12 @@ p {
     gap: var(--space-lg);
   }
 
-  .privacy-banner__inner {
+  .privacy-band__inner {
     flex-direction: column;
     text-align: center;
   }
 
-  .privacy-banner p {
+  .privacy-band p {
     max-width: none;
   }
 
