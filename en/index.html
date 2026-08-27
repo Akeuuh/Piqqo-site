@@ -88,8 +88,9 @@
           </div>
 
           <!-- Product mockup: Suggestions screen replica.
-               Garment tiles are placeholder slots — set style="--tile:url(...)"
-               on a .mock-garment to drop in a real screenshot. -->
+               Garment tiles carry real photos from /assets (see style.css) —
+               override style="--tile:url(...)" on a .mock-garment to swap one
+               for an actual app screenshot. -->
           <div class="hero__visual">
             <div class="mockup" role="img" aria-label="Preview of the Piqqo app: three suggested outfits">
               <div class="mockup__notch"></div>
@@ -105,13 +106,13 @@
                   <div class="mock-card">
                     <span class="mock-card__badge">1 / 3</span>
                     <span class="mock-card__heart" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </span>
                     <div class="mock-collage">
                       <div class="mock-garment mock-garment--1"><span class="mock-garment__badge">Blazer</span></div>
                       <div class="mock-garment mock-garment--2"><span class="mock-garment__badge">Shirt</span></div>
                       <div class="mock-garment mock-garment--3"><span class="mock-garment__badge">Trousers</span></div>
-                      <div class="mock-garment mock-garment--4"><span class="mock-garment__badge">Derbies</span></div>
+                      <div class="mock-garment mock-garment--4"><span class="mock-garment__badge">Loafers</span></div>
                     </div>
                     <p class="mock-card__reason">
                       A sober, structured look, perfect for an interview: the
@@ -178,7 +179,7 @@
                     <div class="mock-scan__tags">
                       <span class="mock-tag">Blazer</span>
                       <span class="mock-tag">Wool</span>
-                      <span class="mock-tag">Navy</span>
+                      <span class="mock-tag">Heathered khaki</span>
                       <span class="mock-tag">Winter</span>
                     </div>
                     <div class="mock-scan__shutter" aria-hidden="true"></div>
@@ -241,7 +242,7 @@
               <div class="mock-swipe__card mock-swipe__card--front">
                 <span class="mock-swipe__pass" aria-hidden="true">&times;</span>
                 <span class="mock-swipe__like" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                 </span>
               </div>
             </div>
@@ -288,7 +289,7 @@
                     <div class="mock-scan__tags">
                       <span class="mock-tag">Blazer</span>
                       <span class="mock-tag">Wool</span>
-                      <span class="mock-tag">Navy</span>
+                      <span class="mock-tag">Heathered khaki</span>
                     </div>
                     <div class="mock-scan__shutter" aria-hidden="true"></div>
                   </div>
@@ -360,13 +361,13 @@
                     <div class="mock-card">
                       <span class="mock-card__badge">1 / 3</span>
                       <span class="mock-card__heart" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                       </span>
                       <div class="mock-collage">
                         <div class="mock-garment mock-garment--1"><span class="mock-garment__badge">Blazer</span></div>
                         <div class="mock-garment mock-garment--2"><span class="mock-garment__badge">Shirt</span></div>
                         <div class="mock-garment mock-garment--3"><span class="mock-garment__badge">Trousers</span></div>
-                        <div class="mock-garment mock-garment--4"><span class="mock-garment__badge">Derbies</span></div>
+                        <div class="mock-garment mock-garment--4"><span class="mock-garment__badge">Loafers</span></div>
                       </div>
                       <p class="mock-card__reason">
                         A sober, structured look, perfect for an interview.
@@ -418,7 +419,7 @@
                     <div class="mock-refine__actions" aria-hidden="true">
                       <span class="mock-refine__btn mock-refine__btn--pass">&times;</span>
                       <span class="mock-refine__btn mock-refine__btn--like">
-                        <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.3 8.6 1.8 5 5.1 5c2 0 3.3 1.2 3.9 2.3C9.6 6.2 10.9 5 12.9 5c3.3 0 4.8 3.6 3.1 6.7C19.5 16.1 12 21 12 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                       </span>
                     </div>
                   </div>

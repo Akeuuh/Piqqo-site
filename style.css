@@ -916,8 +916,8 @@ p {
 
 /* ============================================
    Phone mockup primitive (reused by hero, features, how-it-works)
-   Garment tiles are placeholder slots: set --tile to a real screenshot url
-   (background-image) to raise fidelity per slot.
+   Garment tiles ship with real photos from /assets; override --tile per slot
+   to swap in an actual app screenshot.
    ============================================ */
 .mockup {
   --mock-w: 300px;
@@ -1047,24 +1047,35 @@ p {
   position: relative;
   border-radius: var(--radius-md);
   background-color: var(--color-muted);
-  background-image: var(--tile, none);
+  /* Three stacked layers, top to bottom: a light palette tint that keeps the
+     photos on-brand, the garment photo itself, and the original colour
+     gradient which shows through while the photo is still loading. */
+  background-image: var(--tint, none), var(--tile, none), var(--tile-bg, none);
   background-size: cover;
   background-position: center;
   overflow: hidden;
 }
 
-/* Placeholder tints so tiles read as distinct garments before real photos */
+/* Garment slots: --tile is the photo, --tile-bg the colour it falls back to. */
 .mock-garment--1 {
-  background-image: linear-gradient(145deg, #b9a58f, #8f7d68);
+  --tile: url("assets/garment-jacket.webp");
+  --tint: linear-gradient(145deg, rgba(185, 165, 143, 0.16), rgba(143, 125, 104, 0.24));
+  --tile-bg: linear-gradient(145deg, #b9a58f, #8f7d68);
 }
 .mock-garment--2 {
-  background-image: linear-gradient(145deg, #cdd7d1, #a7b8ae);
+  --tile: url("assets/garment-shirt.webp");
+  --tint: linear-gradient(145deg, rgba(205, 215, 209, 0.16), rgba(167, 184, 174, 0.24));
+  --tile-bg: linear-gradient(145deg, #cdd7d1, #a7b8ae);
 }
 .mock-garment--3 {
-  background-image: linear-gradient(145deg, #9fb0c4, #7889a0);
+  --tile: url("assets/garment-trousers.webp");
+  --tint: linear-gradient(145deg, rgba(159, 176, 196, 0.16), rgba(120, 137, 160, 0.24));
+  --tile-bg: linear-gradient(145deg, #9fb0c4, #7889a0);
 }
 .mock-garment--4 {
-  background-image: linear-gradient(145deg, #e0b3a4, #c98d78);
+  --tile: url("assets/garment-shoes.webp");
+  --tint: linear-gradient(145deg, rgba(224, 179, 164, 0.16), rgba(201, 141, 120, 0.24));
+  --tile-bg: linear-gradient(145deg, #e0b3a4, #c98d78);
 }
 
 .mock-garment__badge {
@@ -1337,7 +1348,14 @@ p {
   position: absolute;
   inset: 16% 24%;
   border-radius: 12px;
-  background: linear-gradient(150deg, #3d4a5c, #26303d);
+  background-color: #26303d;
+  /* Cool tint keeps the photo inside the camera-view lighting. */
+  background-image:
+    linear-gradient(150deg, rgba(61, 74, 92, 0.35), rgba(38, 48, 61, 0.45)),
+    url("assets/garment-jacket-tall.webp"),
+    linear-gradient(150deg, #3d4a5c, #26303d);
+  background-size: cover;
+  background-position: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
@@ -1473,26 +1491,40 @@ p {
 
 .mock-tile {
   border-radius: var(--radius-md);
+  /* Same three-layer stack as .mock-garment: tint, photo, colour fallback. */
+  background-image: var(--tint, none), var(--tile, none), var(--tile-bg, none);
   background-size: cover;
   background-position: center;
 }
 .mock-tile--1 {
-  background-image: linear-gradient(145deg, #b9a58f, #8f7d68);
+  --tile: url("assets/garment-jacket.webp");
+  --tint: linear-gradient(145deg, rgba(185, 165, 143, 0.16), rgba(143, 125, 104, 0.24));
+  --tile-bg: linear-gradient(145deg, #b9a58f, #8f7d68);
 }
 .mock-tile--2 {
-  background-image: linear-gradient(145deg, #cdd7d1, #a7b8ae);
+  --tile: url("assets/garment-shirt.webp");
+  --tint: linear-gradient(145deg, rgba(205, 215, 209, 0.16), rgba(167, 184, 174, 0.24));
+  --tile-bg: linear-gradient(145deg, #cdd7d1, #a7b8ae);
 }
 .mock-tile--3 {
-  background-image: linear-gradient(145deg, #9fb0c4, #7889a0);
+  --tile: url("assets/garment-trousers.webp");
+  --tint: linear-gradient(145deg, rgba(159, 176, 196, 0.16), rgba(120, 137, 160, 0.24));
+  --tile-bg: linear-gradient(145deg, #9fb0c4, #7889a0);
 }
 .mock-tile--4 {
-  background-image: linear-gradient(145deg, #e0b3a4, #c98d78);
+  --tile: url("assets/garment-shoes.webp");
+  --tint: linear-gradient(145deg, rgba(224, 179, 164, 0.16), rgba(201, 141, 120, 0.24));
+  --tile-bg: linear-gradient(145deg, #e0b3a4, #c98d78);
 }
 .mock-tile--5 {
-  background-image: linear-gradient(145deg, #d8c7a8, #b8a17e);
+  --tile: url("assets/garment-knitwear.webp");
+  --tint: linear-gradient(145deg, rgba(216, 199, 168, 0.16), rgba(184, 161, 126, 0.24));
+  --tile-bg: linear-gradient(145deg, #d8c7a8, #b8a17e);
 }
 .mock-tile--6 {
-  background-image: linear-gradient(145deg, #a9b8b0, #869a8f);
+  --tile: url("assets/garment-rack.webp");
+  --tint: linear-gradient(145deg, rgba(169, 184, 176, 0.16), rgba(134, 154, 143, 0.24));
+  --tile-bg: linear-gradient(145deg, #a9b8b0, #869a8f);
 }
 
 /* --- Swipe cards visual (Swipe & favoris cell) --- */
@@ -1522,7 +1554,14 @@ p {
   justify-content: space-between;
   padding: 12px;
   transform: rotate(3deg);
-  background: linear-gradient(160deg, #cdd7d1, #a7b8ae);
+  background-color: #a7b8ae;
+  /* Sage tint from the original placeholder, kept over the outfit photo. */
+  background-image:
+    linear-gradient(160deg, rgba(205, 215, 209, 0.18), rgba(167, 184, 174, 0.3)),
+    url("assets/outfit-card.webp"),
+    linear-gradient(160deg, #cdd7d1, #a7b8ae);
+  background-size: cover;
+  background-position: center;
 }
 
 .mock-swipe__pass,
