@@ -280,16 +280,19 @@ p {
   overflow: hidden;
 }
 
-/* Soft warm glow behind the phone */
+/* Soft warm glow behind the phone.
+   This spans the whole hero on purpose. When it was a narrow box pinned to the
+   right, a `circle` gradient sized off the box's tall diagonal never reached
+   its `transparent` stop before hitting the box's left edge, so on narrow
+   viewports `overflow: hidden` sliced the glow off mid-colour and drew a hard
+   vertical seam down the middle of the hero. Sizing the ellipse in percentages
+   of the full hero instead means it fades out on its own at every width. */
 .hero::before {
   content: "";
   position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 55%;
-  height: 120%;
+  inset: 0;
   background: radial-gradient(
-    circle at 60% 40%,
+    62% 55% at 83% 38%,
     rgba(224, 122, 95, 0.16) 0%,
     rgba(129, 178, 154, 0.1) 40%,
     transparent 70%
