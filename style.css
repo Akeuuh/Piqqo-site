@@ -655,7 +655,8 @@ p {
   line-height: var(--line-height-relaxed);
 }
 
-.legal__content ul {
+.legal__content ul,
+.legal__content ol {
   margin-bottom: var(--space-md);
   padding-left: var(--space-lg);
 }
