@@ -869,9 +869,7 @@ p {
 
 /* ============================================
    Store badges
-   The App Store badge links to the live listing. The Google Play one has no
-   listing to point at yet, so it renders as .store-badge--soon: same shape,
-   muted, not a link.
+   Both badges link to their live listing (App Store + Google Play).
    ============================================ */
 .store-badges {
   display: flex;
@@ -896,27 +894,6 @@ p {
   color: #fff;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-}
-
-/* Not-yet-available store: outlined rather than filled, and inert. The 1px
-   border is offset out of the padding so both badges stay the same height. */
-.store-badge--soon {
-  padding: 8px 15px;
-  background-color: transparent;
-  color: var(--color-text-secondary);
-  border: 1px solid rgba(45, 52, 54, 0.18);
-  cursor: default;
-}
-
-.store-badge--soon svg {
-  fill: currentColor;
-  opacity: 0.7;
-}
-
-.store-badge--soon:hover {
-  color: var(--color-text-secondary);
-  transform: none;
-  box-shadow: none;
 }
 
 .store-badge svg {
